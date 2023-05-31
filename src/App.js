@@ -12,9 +12,6 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [username, setUsername] = useState('');
-  const [selectedSchedule, setSelectedSchedule] = useState(null);
-  const [teacherInfo, setTeacherInfo] = useState({ teacherName: '', teacherId: '' });
-
 
   // Dummy data for the teacher's schedule
   const teacherSchedule = [
@@ -29,18 +26,6 @@ const App = () => {
     const enteredUsername = event.target.username.value;
     setUsername(enteredUsername);
     setLoggedIn(true);
-
-    const loggedInTeacher = {
-      teacherName: enteredUsername,
-      teacherId: '123456',
-      schedule: teacherSchedule,
-    };
-  
-    setTeacherInfo(loggedInTeacher);
-    setSelectedSchedule(teacherSchedule);
-  };
-
-
   };
 
   const handleLogout = () => {
@@ -69,8 +54,7 @@ const App = () => {
       {loggedIn ? (
         <div>
           <section>
-            <h3>Welcome, {teacherInfo.teacherName}!</h3>
-            {/* <p>ID: {teacherInfo.teacherId}</p> */}
+            <h3>Welcome, {username}</h3>
             <p>ID: 123456</p>
           </section>
 
